@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+コメント一覧
+{% endblock %}
+
+  {% block content %}
+  <div class="container">
+    <div>
+      <a href="{% url 'lec_info:create' %}">
+        <p>新規コメント投稿</p>
+      </a>
+    </div>
+    <hr>
+
+    <h1>コメント一覧</h1>
+    {% for comment in object_list %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{% url 'lec_info:detail' comment.id %}">
+            {{ comment.title }}
+          </a>
+        </h5>
+        <p class="card-text">{{ comment.text }}</p>
+      </div>
+    </div>
+    {% endfor %}
+    {% include 'simple_pagination.html' %}
+  </div>
+  {% endblock content %}
