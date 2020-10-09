@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+コメント
+{% endblock %}
+
+  {% block content %}
+  <div class="container">
+    <h1 class="my-5">コメント {{ comment.id }}</h1>
+    <div class="card mb-3">
+      <div class="card-header">
+        ID : {{ comment.id }}
+      </div>
+      <div class="card-body">
+        <p class="card-text">Title : </p>
+        <h5 class="card-title">{{ comment.title }}</h5>
+        <p class="card-text">Text : </p>
+        <p class="card-text">{{ comment.text }}</p>
+      </div>
+      <div class="card-footer">
+        作成日時 : {{ comment.created_time }}<br>
+        更新日時 : {{ comment.updated_time }}
+      </div>
+    </div>
+    <hr>
+    <div>
+      <p>
+        <a href="{% url 'lec_info:update' comment.id %}">
+          編集する
+        </a>
+        <a href="{% url 'lec_info:delete' comment.id %}">
+          削除する
+        </a>
+      </p>
+      <p>
+        <a href="{% url 'lec_info:index' %}">
+          ホーム画面に戻る
+        </a>
+      </p>
+    </div>
+  </div>
+  {% endblock content %}

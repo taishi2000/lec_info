@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+コメント削除画面
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h3 class="my-5">本当にコメント削除しますか？</h3>
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">コメントを削除する</button>
+    </form>
+  </div>
+{% endblock content %}
