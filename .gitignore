@@ -1,0 +1,10 @@
+db.sqlite3
+*/__pycache__/
+*/*/__pycache__/
+.DS_Store
+*.pyc
+*~
+/.vscode 
+__pycache__
+Myvenv 
+/static
